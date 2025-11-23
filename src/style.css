@@ -180,6 +180,121 @@ body::before {
   }
 }
 
+/* Cursor Trail Effect */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--md-sys-color-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease;
+  mix-blend-mode: difference;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--md-sys-color-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.15s ease;
+  opacity: 0.5;
+}
+
+/* Floating Particles */
+.particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--md-sys-color-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.4;
+  animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  25% {
+    transform: translateY(-100px) translateX(50px);
+  }
+
+  50% {
+    transform: translateY(-200px) translateX(-50px);
+  }
+
+  75% {
+    transform: translateY(-100px) translateX(100px);
+  }
+}
+
+/* Enhanced Interactive Elements */
+a,
+button,
+.btn,
+.card,
+.skill-category,
+.certificate-item,
+.interest-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover,
+button:hover {
+  transform: translateY(-2px);
+}
+
+.card:hover,
+.skill-category:hover,
+.certificate-item:hover,
+.interest-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--md-sys-elevation-4);
+}
+
+/* Magnetic Button Effect */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  height: 40px;
+  border-radius: var(--md-sys-shape-corner-full);
+  font: var(--md-sys-typescale-label-large);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  gap: 8px;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
 /* Typography Helpers */
 h1 {
   font: var(--md-sys-typescale-display-large);

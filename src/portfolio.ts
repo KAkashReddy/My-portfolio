@@ -5,6 +5,14 @@ const nav = document.querySelector('.nav') as HTMLElement;
 const skillLevels = document.querySelectorAll('.skill-level') as NodeListOf<HTMLElement>;
 const contactForm = document.getElementById('contactForm') as HTMLFormElement;
 
+// Interactive Elements
+let cursorDot: HTMLElement;
+let cursorOutline: HTMLElement;
+let mouseX = 0;
+let mouseY = 0;
+let outlineX = 0;
+let outlineY = 0;
+
 // Function to handle header styling on scroll
 function handleScroll() {
   if (window.scrollY > 100) {
@@ -107,6 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal(); // Set up scroll reveal animations
   setupRippleEffect(); // Set up Material ripple effect
   setupThemeToggle(); // Set up theme toggle
+  setupCursorEffects(); // Set up cursor trail
+  createFloatingParticles(); // Create floating particles
+  setupMagneticButtons(); // Set up magnetic button effects
 });
 
 // Theme Toggle
@@ -202,6 +213,77 @@ function setupRippleEffect() {
       setTimeout(() => {
         ripple.remove();
       }, 600);
+    });
+  });
+}
+
+// Cursor Trail Effect
+function setupCursorEffects() {
+  cursorDot = document.createElement('div');
+  cursorDot.className = 'cursor-dot';
+  document.body.appendChild(cursorDot);
+
+  cursorOutline = document.createElement('div');
+  cursorOutline.className = 'cursor-outline';
+  document.body.appendChild(cursorOutline);
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = `${mouseX}px`;
+    cursorDot.style.top = `${mouseY}px`;
+  });
+
+  // Smooth outline follow
+  function animateOutline() {
+    outlineX += (mouseX - outlineX) * 0.15;
+    outlineY += (mouseY - outlineY) * 0.15;
+    cursorOutline.style.left = `${outlineX - 20}px`;
+    cursorOutline.style.top = `${outlineY - 20}px`;
+    requestAnimationFrame(animateOutline);
+  }
+  animateOutline();
+
+  // Scale cursor on hover
+  const interactiveElements = document.querySelectorAll('a, button, .btn, .card');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursorDot.style.transform = 'scale(2)';
+      cursorOutline.style.transform = 'scale(1.5)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursorDot.style.transform = 'scale(1)';
+      cursorOutline.style.transform = 'scale(1)';
+    });
+  });
+}
+
+// Floating Particles
+function createFloatingParticles() {
+  const particleCount = 15;
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.top = `${Math.random() * 100}%`;
+    particle.style.animationDelay = `${Math.random() * 20}s`;
+    particle.style.animationDuration = `${15 + Math.random() * 10}s`;
+    document.body.appendChild(particle);
+  }
+}
+
+// Magnetic Button Effect
+function setupMagneticButtons() {
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.addEventListener('mousemove', (e: any) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      (button as HTMLElement).style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    button.addEventListener('mouseleave', () => {
+      (button as HTMLElement).style.transform = 'translate(0, 0)';
     });
   });
 }
