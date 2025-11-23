@@ -118,6 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCursorEffects(); // Set up cursor trail
   createFloatingParticles(); // Create floating particles
   setupMagneticButtons(); // Set up magnetic button effects
+  setup3DTiltEffect(); // Set up 3D tilt on cards
+  setupScrollProgress(); // Set up scroll progress bar
+  setupParallaxEffect(); // Set up parallax scrolling
+  setupTypingAnimation(); // Set up typing animation
 });
 
 // Theme Toggle
@@ -286,4 +290,76 @@ function setupMagneticButtons() {
       (button as HTMLElement).style.transform = 'translate(0, 0)';
     });
   });
+}
+
+// 3D Tilt Effect
+function setup3DTiltEffect() {
+  const tiltCards = document.querySelectorAll('.tilt-card');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e: any) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
+
+      (card as HTMLElement).style.setProperty('--rotate-x', `${rotateX}deg`);
+      (card as HTMLElement).style.setProperty('--rotate-y', `${rotateY}deg`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      (card as HTMLElement).style.setProperty('--rotate-x', '0deg');
+      (card as HTMLElement).style.setProperty('--rotate-y', '0deg');
+    });
+  });
+}
+
+// Scroll Progress Bar
+function setupScrollProgress() {
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.appendChild(progressBar);
+
+  window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    progressBar.style.width = `${scrolled}%`;
+  });
+}
+
+// Parallax Scrolling Effect
+function setupParallaxEffect() {
+  const parallaxElements = document.querySelectorAll('.hero-jp-deco, .section-bg-text');
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    parallaxElements.forEach((el, index) => {
+      const speed = 0.5 + (index * 0.1);
+      (el as HTMLElement).style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  });
+}
+
+// Typing Animation for Hero
+function setupTypingAnimation() {
+  const heroTitle = document.querySelector('.hero h1');
+  if (!heroTitle) return;
+
+  const text = heroTitle.innerHTML;
+  heroTitle.innerHTML = '';
+  heroTitle.classList.add('text-reveal');
+
+  let index = 0;
+  function typeWriter() {
+    if (index < text.length) {
+      heroTitle.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, 50);
+    }
+  }
+
+  // Start typing after a short delay
+  setTimeout(typeWriter, 500);
 }
