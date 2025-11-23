@@ -379,7 +379,9 @@ function setupTypingAnimation() {
   let index = 0;
   function typeWriter() {
     if (index < text.length) {
-      heroTitle.innerHTML += text.charAt(index);
+      if (heroTitle) {
+        heroTitle.innerHTML += text.charAt(index);
+      }
       index++;
       setTimeout(typeWriter, 50);
     }
