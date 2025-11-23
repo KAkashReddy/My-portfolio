@@ -145,9 +145,18 @@ function setupThemeToggle() {
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
+    // Add transition class
+    html.classList.add('theme-transitioning');
+
+    // Change theme
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateIcon(newTheme);
+
+    // Remove transition class after animation
+    setTimeout(() => {
+      html.classList.remove('theme-transitioning');
+    }, 800);
   });
 
   function updateIcon(theme: string) {
@@ -234,31 +243,47 @@ function setupCursorEffects() {
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    cursorDot.style.left = `${mouseX}px`;
-    cursorDot.style.top = `${mouseY}px`;
+
+    // Instant dot follow
+    cursorDot.style.left = `${mouseX - 6}px`;
+    cursorDot.style.top = `${mouseY - 6}px`;
   });
 
-  // Smooth outline follow
+  // Smooth outline follow with easing
   function animateOutline() {
-    outlineX += (mouseX - outlineX) * 0.15;
-    outlineY += (mouseY - outlineY) * 0.15;
-    cursorOutline.style.left = `${outlineX - 20}px`;
-    cursorOutline.style.top = `${outlineY - 20}px`;
+    const dx = mouseX - outlineX;
+    const dy = mouseY - outlineY;
+    outlineX += dx * 0.2;
+    outlineY += dy * 0.2;
+
+    cursorOutline.style.left = `${outlineX - 25}px`;
+    cursorOutline.style.top = `${outlineY - 25}px`;
     requestAnimationFrame(animateOutline);
   }
   animateOutline();
 
-  // Scale cursor on hover
-  const interactiveElements = document.querySelectorAll('a, button, .btn, .card');
+  // Enhanced hover effects
+  const interactiveElements = document.querySelectorAll('a, button, .btn, .card, .skill-category, .certificate-item, .interest-item');
   interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
-      cursorDot.style.transform = 'scale(2)';
-      cursorOutline.style.transform = 'scale(1.5)';
+      cursorDot.classList.add('hover');
+      cursorOutline.classList.add('hover');
     });
     el.addEventListener('mouseleave', () => {
-      cursorDot.style.transform = 'scale(1)';
-      cursorOutline.style.transform = 'scale(1)';
+      cursorDot.classList.remove('hover');
+      cursorOutline.classList.remove('hover');
     });
+  });
+
+  // Hide cursor when leaving window
+  document.addEventListener('mouseleave', () => {
+    cursorDot.style.opacity = '0';
+    cursorOutline.style.opacity = '0';
+  });
+
+  document.addEventListener('mouseenter', () => {
+    cursorDot.style.opacity = '0.8';
+    cursorOutline.style.opacity = '0.6';
   });
 }
 
