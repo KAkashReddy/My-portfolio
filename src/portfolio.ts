@@ -156,7 +156,7 @@ function setupThemeToggle() {
     // Remove transition class after animation
     setTimeout(() => {
       html.classList.remove('theme-transitioning');
-    }, 800);
+    }, 1000);
   });
 
   function updateIcon(theme: string) {
