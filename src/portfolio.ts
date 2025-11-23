@@ -344,27 +344,3 @@ function setupParallaxEffect() {
     });
   });
 }
-
-// Typing Animation for Hero
-function setupTypingAnimation() {
-  const heroTitle = document.querySelector('.hero h1');
-  if (!heroTitle) return;
-
-  const text = heroTitle.innerHTML;
-  heroTitle.innerHTML = '';
-  heroTitle.classList.add('text-reveal');
-
-  let index = 0;
-  function typeWriter() {
-    if (index < text.length) {
-      if (heroTitle) {
-        heroTitle.innerHTML += text.charAt(index);
-      }
-      index++;
-      setTimeout(typeWriter, 50);
-    }
-  }
-
-  // Start typing after a short delay
-  setTimeout(typeWriter, 500);
-}
