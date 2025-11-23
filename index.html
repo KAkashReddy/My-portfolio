@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K AKASH REDDY - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/src/style.css">
+  <script type="module" src="/src/portfolio.ts" defer></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <a href="/">K AKASH REDDY</a>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero reveal">
+      <div class="hero-bg-glow"></div>
+      <div class="hero-content">
+        <div class="hero-jp-deco">デジタル体験</div>
+        <div class="hero-text">
+          <p class="hello-tag">Hello, I'm</p>
+          <h1>K Akash Reddy</h1>
+          <h2 class="hero-subtitle">Full Stack Developer | <span class="gradient-text">ISE Student</span></h2>
+          <p class="hero-description">Building scalable web applications with expertise in modern web technologies.
+            Passionate about creating innovative solutions and delivering high-quality code.</p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="#projects" class="btn btn-secondary">View Projects</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-wrapper tilt-card">
+            <img src="/src/images/akash.png" alt="Akash Reddy" class="profile-img">
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse"></div>
+        <span>Scroll Down</span>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about reveal">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <div class="section-bg-text">自己紹介</div>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Motivated and detail-oriented Information Science and Engineering (ISE) graduate with a strong foundation
+            in software development, data analysis, cybersecurity, and machine learning. Proficient in programming
+            languages including Java, Python, and SQL, with practical experience in web development and database
+            management.</p>
+          <p>Known for strong problem-solving skills, clear communication, and the ability to collaborate effectively
+            within diverse teams. Self-driven and adaptable, with a commitment to continuous learning and growth.
+            Seeking an entry-level position to apply technical expertise and academic knowledge in a dynamic and
+            challenging environment.</p>
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section id="experience" class="section experience reveal">
+      <div class="section-header">
+        <h2>Professional Experience</h2>
+        <div class="section-bg-text">経験</div>
+      </div>
+      <div class="experience-content">
+        <div class="experience-item">
+          <div class="experience-timeline">
+            <span class="year">2021 - 2025</span>
+          </div>
+          <div class="experience-details">
+            <h3>Information Science & Engineering Student</h3>
+            <p class="institution">Nagarjuna College of Engineering & Technology</p>
+            <p class="location">Bangalore, India</p>
+            <ul class="experience-highlights">
+              <li>Strong foundation in software development, data analysis, and machine learning</li>
+              <li>Proficient in Java, Python, and SQL with practical web development experience</li>
+              <li>Developed multiple academic and personal projects demonstrating technical expertise</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects reveal">
+      <div class="section-header">
+        <h2>Key Projects</h2>
+        <div class="section-bg-text">プロジェクト</div>
+      </div>
+      <div class="projects-content reveal-stagger">
+        <div class="project-card tilt-card">
+          <div class="project-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="project-details">
+            <h3>Portfolio Website</h3>
+            <p>Built a modern, responsive portfolio website with Material Design 3 principles, featuring smooth
+              animations and Japanese-inspired aesthetics.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">TypeScript</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card tilt-card">
+          <div class="project-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="project-details">
+            <h3>Data Analysis Project</h3>
+            <p>Developed data analysis solutions using Python and SQL, implementing data visualization and insights
+              generation for academic research.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Data Analysis</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card tilt-card">
+          <div class="project-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="project-details">
+            <h3>Machine Learning Application</h3>
+            <p>Created machine learning models for predictive analysis, applying algorithms and data preprocessing
+              techniques learned in coursework.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">ML</span>
+              <span class="tech-tag">Jupyter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills reveal">
+      <div class="section-header">
+        <h2>Skills</h2>
+        <div class="section-bg-text">技術</div>
+      </div>
+      <div class="skills-content reveal-stagger">
+        <div class="skill-category">
+          <h3>Programming Languages</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span class="skill-name">Python</span><span>90%</span></div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span class="skill-name">Java</span><span>85%</span></div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span class="skill-name">SQL</span><span>80%</span></div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Technical Skills</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span class="skill-name">Visual Studio Code</span><span>95%</span></div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span class="skill-name">Eclipse</span><span>85%</span></div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span class="skill-name">Jupyter Notebook</span><span>90%</span></div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Soft Skills</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info"><span class="skill-name">Self-motivation</span><span>95%</span></div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span class="skill-name">Strong Interpersonal Skills</span><span>90%</span></div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span class="skill-name">Prioritization & Multitasking</span><span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education reveal">
+      <div class="section-header">
+        <h2>Education</h2>
+        <div class="section-bg-text">学歴</div>
+      </div>
+      <div class="education-content">
+        <div class="education-item">
+          <div class="education-timeline">
+            <span class="year">2021 - 2025</span>
+          </div>
+          <div class="education-details">
+            <h3>Bachelor of Computer Science Engineering (ISE)</h3>
+            <p class="institution">Nagarjuna College of Engineering & Technology</p>
+            <p class="location">Bangalore, India</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section certificates reveal">
+      <div class="section-header">
+        <h2>Certificates & Courses</h2>
+        <div class="section-bg-text">資格</div>
+      </div>
+      <div class="certificates-content reveal-stagger">
+        <a href="https://drive.google.com/file/d/1/placeholder1/view?usp=sharing" target="_blank"
+          rel="noopener noreferrer" class="certificate-link">
+          <div class="certificate-item tilt-card">
+            <div class="certificate-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 L22 7 L12 12 L2 7 L12 2 Z M2 17 L12 22 L22 17 M2 12 L12 17 L22 12" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="certificate-details">
+              <h3>Deep Dive into Python Libraries & Real-World Machine Learning Application</h3>
+              <p>Development & Deployment</p>
+            </div>
+          </div>
+        </a>
+        <a href="https://drive.google.com/file/d/2/placeholder2/view?usp=sharing" target="_blank"
+          rel="noopener noreferrer" class="certificate-link">
+          <div class="certificate-item tilt-card">
+            <div class="certificate-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 L22 7 L12 12 L2 7 L12 2 Z M2 17 L12 22 L22 17 M2 12 L12 17 L22 12" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="certificate-details">
+              <h3>Python Programming and Application Development</h3>
+            </div>
+          </div>
+        </a>
+        <a href="https://drive.google.com/file/d/3/placeholder3/view?usp=sharing" target="_blank"
+          rel="noopener noreferrer" class="certificate-link">
+          <div class="certificate-item tilt-card">
+            <div class="certificate-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 L22 7 L12 12 L2 7 L12 2 Z M2 17 L12 22 L22 17 M2 12 L12 17 L22 12" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="certificate-details">
+              <h3>Real-Time Project Development using AI & Data Science Application</h3>
+              <p>An End-to-End Development</p>
+            </div>
+          </div>
+        </a>
+        <a href="https://drive.google.com/file/d/1Gj9lj4XAmDoU6WMQyEfpVqUBIFpZqUS9/view?usp=drive_link" target="_blank"
+          rel="noopener noreferrer" class="certificate-link">
+          <div class="certificate-item tilt-card">
+            <div class="certificate-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 L22 7 L12 12 L2 7 L12 2 Z M2 17 L12 22 L22 17 M2 12 L12 17 L22 12" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="certificate-details">
+              <h3>Job-Ready Pro: Python, React, MS Office, Data Structures & Interview Mastery</h3>
+              <p>VTU Skill Enhancement Course</p>
+            </div>
+          </div>
+        </a>
+        <a href="https://drive.google.com/file/d/1gNrldTgPxAQAw_4NoWV74uczG90NSj5o/view?usp=drive_link" target="_blank"
+          rel="noopener noreferrer" class="certificate-link">
+          <div class="certificate-item tilt-card">
+            <div class="certificate-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 L22 7 L12 12 L2 7 L12 2 Z M2 17 L12 22 L22 17 M2 12 L12 17 L22 12" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="certificate-details">
+              <h3>Cloud Application Developer</h3>
+              <p>IT Support Desk</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+    <!-- Interests Section -->
+    <section id="interests" class="section interests reveal">
+      <div class="section-header">
+        <h2>Interests & Hobbies</h2>
+        <div class="section-bg-text">趣味</div>
+      </div>
+      <div class="interest-items reveal-stagger">
+        <div class="interest-item tilt-card">
+          <div class="interest-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Coding</h3>
+        </div>
+        <div class="interest-item tilt-card">
+          <div class="interest-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Photography</h3>
+        </div>
+        <div class="interest-item tilt-card">
+          <div class="interest-icon">
+            <i class="fas fa-music"></i>
+          </div>
+          <h3>Music</h3>
+        </div>
+        <div class="interest-item tilt-card">
+          <div class="interest-icon">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <h3>Gaming</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact reveal">
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+        <div class="section-bg-text">連絡</div>
+      </div>
+      <div class="contact-content reveal-stagger">
+        <div class="contact-info">
+          <div class="contact-item">
+            <h3>Email</h3>
+            <a href="mailto:akashreddy5332@gmail.com">akashreddy5332@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <h3>Phone</h3>
+            <p>+91 7676634822</p>
+          </div>
+          <div class="contact-item">
+            <h3>Location</h3>
+            <p>Bangalore, India</p>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/Akash-Reddy-888" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/k-akash-reddy-543104256/" target="_blank"><i
+                class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/akash_reddy_888/" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your Email">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="/">KAKASH REDDY</a>
+        </div>
+        <div class="footer-links">
+          <nav class="footer-nav">
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#education">Education</a></li>
+              <li><a href="#certificates">Certificates</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer-copyright">
+          <p>&copy; 2025 K Akash Reddy. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
