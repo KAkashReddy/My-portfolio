@@ -145,18 +145,9 @@ function setupThemeToggle() {
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-    // Add transition class
-    html.classList.add('theme-transitioning');
-
-    // Change theme
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateIcon(newTheme);
-
-    // Remove transition class after animation
-    setTimeout(() => {
-      html.classList.remove('theme-transitioning');
-    }, 1300);
   });
 
   function updateIcon(theme: string) {
