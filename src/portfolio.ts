@@ -7,7 +7,6 @@ const contactForm = document.getElementById('contactForm') as HTMLFormElement;
 
 // Interactive Elements
 let cursorDot: HTMLElement;
-let cursorOutline: HTMLElement;
 let mouseX = 0;
 let mouseY = 0;
 let outlineX = 0;
@@ -221,60 +220,48 @@ function setupRippleEffect() {
   });
 }
 
-// Cursor Trail Effect
+// Simple Elegant Cursor Effect
 function setupCursorEffects() {
   cursorDot = document.createElement('div');
   cursorDot.className = 'cursor-dot';
   document.body.appendChild(cursorDot);
 
-  cursorOutline = document.createElement('div');
-  cursorOutline.className = 'cursor-outline';
-  document.body.appendChild(cursorOutline);
-
+  // Smooth cursor follow
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-
-    // Instant dot follow
-    cursorDot.style.left = `${mouseX - 6}px`;
-    cursorDot.style.top = `${mouseY - 6}px`;
   });
 
-  // Smooth outline follow with easing
-  function animateOutline() {
+  function animateCursor() {
     const dx = mouseX - outlineX;
     const dy = mouseY - outlineY;
     outlineX += dx * 0.2;
     outlineY += dy * 0.2;
 
-    cursorOutline.style.left = `${outlineX - 25}px`;
-    cursorOutline.style.top = `${outlineY - 25}px`;
-    requestAnimationFrame(animateOutline);
+    cursorDot.style.left = `${outlineX - 5}px`;
+    cursorDot.style.top = `${outlineY - 5}px`;
+    requestAnimationFrame(animateCursor);
   }
-  animateOutline();
+  animateCursor();
 
-  // Enhanced hover effects
+  // Simple hover effect
   const interactiveElements = document.querySelectorAll('a, button, .btn, .card, .skill-category, .certificate-item, .interest-item');
   interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursorDot.classList.add('hover');
-      cursorOutline.classList.add('hover');
     });
     el.addEventListener('mouseleave', () => {
       cursorDot.classList.remove('hover');
-      cursorOutline.classList.remove('hover');
     });
   });
 
   // Hide cursor when leaving window
   document.addEventListener('mouseleave', () => {
     cursorDot.style.opacity = '0';
-    cursorOutline.style.opacity = '0';
   });
 
   document.addEventListener('mouseenter', () => {
-    cursorDot.style.opacity = '0.8';
-    cursorOutline.style.opacity = '0.6';
+    cursorDot.style.opacity = '0.7';
   });
 }
 
