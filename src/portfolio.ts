@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setup3DTiltEffect(); // Set up 3D tilt on cards
   setupScrollProgress(); // Set up scroll progress bar
   setupParallaxEffect(); // Set up parallax scrolling
-  setupTypingAnimation(); // Set up typing animation
+  // setupTypingAnimation(); // Disabled - was clearing hero title
 });
 
 // Theme Toggle
