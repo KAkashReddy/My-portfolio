@@ -209,6 +209,7 @@ body::before {
   pointer-events: none;
   opacity: 0.4;
   animation: float 20s infinite ease-in-out;
+  z-index: 1;
 }
 
 @keyframes float {
