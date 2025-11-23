@@ -260,73 +260,100 @@ body::before {
   box-shadow: 0 0 25px var(--md-sys-color-tertiary);
 }
 
-/* Theme Transition Animation - Sliding Curtain Effect */
+/* Theme Transition Animation - Dramatic Flip Effect */
 html {
   transition: none;
 }
 
-html.theme-transitioning * {
-  transition: background-color 0.5s ease,
-    color 0.5s ease,
-    border-color 0.5s ease,
-    box-shadow 0.5s ease !important;
-}
-
 html.theme-transitioning {
   position: relative;
-  overflow: hidden;
 }
 
-/* Sliding curtain from left to right */
+/* Full screen overlay that flips */
 html.theme-transitioning::before {
   content: '';
   position: fixed;
   top: 0;
-  left: -100%;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
+  background: linear-gradient(135deg,
       var(--md-sys-color-primary) 0%,
-      var(--md-sys-color-secondary) 25%,
-      var(--md-sys-color-tertiary) 50%,
-      var(--md-sys-color-secondary) 75%,
+      var(--md-sys-color-secondary) 33%,
+      var(--md-sys-color-tertiary) 66%,
       var(--md-sys-color-primary) 100%);
   z-index: 10000;
   pointer-events: none;
-  animation: slideWipe 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-  box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+  transform-origin: left center;
+  animation: flipIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+    flipOut 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s forwards;
 }
 
-/* Diagonal stripes overlay */
+/* Animated text overlay */
 html.theme-transitioning::after {
-  content: '';
+  content: 'Switching Theme...';
   position: fixed;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(45deg,
-      transparent,
-      transparent 20px,
-      rgba(255, 255, 255, 0.1) 20px,
-      rgba(255, 255, 255, 0.1) 40px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
   z-index: 10001;
   pointer-events: none;
-  animation: slideWipe 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  animation: textPulse 1.2s ease-in-out;
 }
 
-@keyframes slideWipe {
+@keyframes flipIn {
   0% {
-    left: -100%;
-  }
-
-  50% {
-    left: 0%;
+    transform: perspective(1000px) rotateY(-90deg);
+    opacity: 0;
   }
 
   100% {
-    left: 100%;
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 1;
   }
+}
+
+@keyframes flipOut {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes textPulse {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  20%,
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Smooth color transitions for all elements */
+html.theme-transitioning * {
+  transition: background-color 0.6s ease 0.6s,
+    color 0.6s ease 0.6s,
+    border-color 0.6s ease 0.6s,
+    box-shadow 0.6s ease 0.6s !important;
 }
 
 /* Floating Particles */
